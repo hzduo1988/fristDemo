@@ -40,4 +40,4 @@ task lib2 << {
 
 task notALib << {
     println 'notALib'
-}
+} 
