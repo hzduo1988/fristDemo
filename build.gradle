@@ -21,3 +21,23 @@ task printProperties << {
     println emailNotification
     sourceSets.matching { it.purpose == "production" }.each { println it.name }
 }
+
+task taskX << {
+    println 'taskX'
+}
+
+taskX.dependsOn {
+    tasks.findAll { task -> task.name.startsWith('lib') }
+}
+
+task lib1 << {
+    println 'lib1'
+}
+
+task lib2 << {
+    println 'lib2'
+}
+
+task notALib << {
+    println 'notALib'
+}
